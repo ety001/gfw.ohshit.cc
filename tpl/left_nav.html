@@ -1,0 +1,37 @@
+<div class="col-sm-2 left-nav">
+  <div class="logo"></div>
+  <ul class="nav nav-pills nav-stacked nav-list">
+    <li <?php echo ($page['status']=='note')?'class="active"':'';?> >
+      <a href="<?php echo spUrl('note','index');?>">
+        <span class="fui-plus"></span>
+        添加影片
+      </a>
+    </li>
+    <li <?php echo ($page['status']=='search')?'class="active"':'';?> >
+      <a href="<?php echo spUrl('search','index');?>">
+        <span class="fui-search"></span>
+        搜索
+      </a>
+    </li>
+    <li <?php echo ($page['status']=='notebook')?'class="active"':'';?> >
+      <a href="<?php echo ($page['status']=='notebook')?'#':spUrl('notebook','index');?>" id="notebook_sublist">
+        <span class="fui-video"></span>
+        我的影片库
+      </a>
+    </li>
+    <!--<li <?php echo ($page['status']=='square')?'class="active"':'';?> >
+      <a href="<?php echo spUrl('square','index');?>">
+        <span class="fui-list"></span>
+        所有片子
+      </a>
+    </li>-->
+  </ul>
+  <ul class="nav nav-pills nav-stacked nav-list nav-list-bottom">
+    <li <?php echo ($page['status']=='settings')?'class="active"':'';?> >
+      <a href="<?php echo spUrl('settings','index');?>">
+        <span class="fui-gear"></span>
+        设置
+      </a>
+    </li>
+  </ul>
+</div>

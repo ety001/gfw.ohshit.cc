@@ -1,0 +1,15 @@
+    <div class="clearfix"></div>
+    <?php if($foot_js){
+      foreach($foot_js as $k=>$v){ ?>
+      <script src="<?php echo $v;?>"></script>
+    <?php }
+    }?>
+    <script id="global-alert" type="text/x-jquery-tmpl">
+        <div class="form-group row alert {{= show_style}} alert-dismissible fade in global-alert" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <div class="add-alert-msg">{{= msg}}</div>
+        </div>
+    </script>
+    <div style="display:none;"><script src="http://s95.cnzz.com/stat.php?id=1254070038&web_id=1254070038" language="JavaScript"></script></div>
+  </body>
+</html>
