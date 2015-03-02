@@ -45,3 +45,9 @@ CREATE TABLE IF NOT EXISTS `gfw_users` (
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+
+ALTER TABLE  `gfw_users` ADD  `email` VARCHAR( 50 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE  `gfw_users` CHANGE  `start_time`  `start_time` INT( 11 ) NOT NULL DEFAULT  '0',
+CHANGE  `end_time`  `end_time` INT( 11 ) NOT NULL DEFAULT  '0';
