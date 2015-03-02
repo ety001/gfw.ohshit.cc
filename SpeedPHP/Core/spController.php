@@ -267,7 +267,7 @@ class spArgs {
 			}
 			return $content;
 		} else {
-			return htmlspecialchars($content,ENT_QUOTES);
+			return htmlspecialchars(strip_tags($content),ENT_QUOTES);
 		}
 	}
 }

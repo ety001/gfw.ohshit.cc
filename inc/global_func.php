@@ -45,10 +45,7 @@ function ajax_output($status=0, $msg=null, $info=array()) {
  * 检查是否已登录
  */
 function checkHasLogin(){
-    if(isset($_SESSION['user_info']) && $_SESSION['user_info']['user_id']>0){
-        return true;
-    }
-    if( spClass('m_user')->checkSignature($_COOKIE['signature']) ){
+    if(isset($_SESSION['user']) && $_SESSION['user']['userid']>0){
         return true;
     }
     return false;
@@ -80,13 +77,13 @@ function sendmail($to_user, $subject, $content, $user_name){
     $mail = spClass('PHPMailer');
 
     $mail->IsSMTP(); // 使用SMTP方式发送
-    $mail->Host = "smtp.exmail.qq.com"; // 您的企业邮局域名
+    $mail->Host = "smtp.qq.com"; // 您的企业邮局域名
     $mail->SMTPAuth = true; // 启用SMTP验证功能
-    $mail->Username = "no-reply@verycine.com"; // 邮局用户名(请填写完整的email地址)
-    $mail->Password = "2w3E4r5t1Q"; // 邮局密码
+    $mail->Username = "gfw@ohshit.cc"; // 邮局用户名(请填写完整的email地址)
+    $mail->Password = ""; // 邮局密码
     $mail->Port=25;
-    $mail->From = "no-reply@verycine.com"; //邮件发送者email地址
-    $mail->FromName = "Verycine";
+    $mail->From = "gfw@ohshit.cc"; //邮件发送者email地址
+    $mail->FromName = "GFW.OHSHIT.CC";
     $mail->CharSet  = "utf-8";
 
 

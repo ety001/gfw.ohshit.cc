@@ -51,3 +51,9 @@ CREATE TABLE IF NOT EXISTS `gfw_users` (
 ALTER TABLE  `gfw_users` ADD  `email` VARCHAR( 50 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 ALTER TABLE  `gfw_users` CHANGE  `start_time`  `start_time` INT( 11 ) NOT NULL DEFAULT  '0',
 CHANGE  `end_time`  `end_time` INT( 11 ) NOT NULL DEFAULT  '0';
+
+
+ALTER TABLE  `gfw_order` ADD PRIMARY KEY (  `id` );
+ALTER TABLE  `gfw_order` CHANGE  `id`  `id` INT( 11 ) NOT NULL AUTO_INCREMENT;
+ALTER TABLE  `gfw_users` ADD  `port` INT NOT NULL DEFAULT  '0' AFTER  `userid`;
+
