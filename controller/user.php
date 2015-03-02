@@ -22,7 +22,7 @@ class user extends spController
 
     public function order(){
         $order_lib          = spClass('m_order');
-        $this->order_info   = $order_lib->findAll(array('userid'=>$_SESSION['userid']));
+        $this->order_info   = $order_lib->findAll(array('userid'=>$_SESSION['user']['userid']));
         $page               = array(
             'title'     => '购买',
             'tag'       => 'order'
@@ -34,7 +34,7 @@ class user extends spController
 
     public function orderSave(){
         $order_id           = $this->spArgs('order_id', false, 'post');
-        $userid             = $_SESSION['userid'];
+        $userid             = $_SESSION['user']['userid'];
         $order_lib          = spClass('m_order');
         if($order_lib->find(array('order_id'=>$order_id))){
             $this->error('订单已存在', spUrl('user', 'order'));
