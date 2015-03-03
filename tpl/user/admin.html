@@ -42,7 +42,7 @@
         }?>
       </td>
       <td>
-        <input id="port" value="<?php echo $v['port'];?>"><button onclick="p(<?php echo $v['userid'];?>);">save</button>
+        <input id="port_<?php echo $v['userid'];?>" value="<?php echo $v['port'];?>"><button onclick="p('<?php echo $v['userid'];?>');">save</button>
       </td>
       <td>
         <?php if($v['user_type']!=1){?>
@@ -97,9 +97,9 @@
 </div>
 <script type="text/javascript">
 function p(u){
-  var port = $('#port').val();
+  var port = $('#port_'+u).val();
   $.post('<?php echo spUrl("user","port");?>', {p:port,u:u},function(){
-    //location.href="<?php echo spUrl('user','admin');?>";
+    location.href="<?php echo spUrl('user','admin');?>";
   });
 }
 </script>
