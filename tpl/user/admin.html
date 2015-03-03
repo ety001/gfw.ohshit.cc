@@ -10,6 +10,7 @@
       <th>end_time</th>
       <th>user_type</th>
       <th>status</th>
+      <th>端口</th>
       <th>操作</th>
     </thead>
     <?php foreach ($user_info as $k => $v) {?>
@@ -39,6 +40,9 @@
             echo '<span class="label label-success">审核成功</span>';
             break;
         }?>
+      </td>
+      <td>
+        <input id="port" value="<?php echo $v['port'];?>"><button onclick="p(<?php echo $v['userid'];?>);">save</button>
       </td>
       <td>
         <?php if($v['user_type']!=1){?>
@@ -91,3 +95,11 @@
   </table>
   <?php }?>
 </div>
+<script type="text/javascript">
+function p(u){
+  var port = $('#port').val();
+  $.post('<?php echo spUrl("user","port");?>', {p:port,u:u},function(){
+    //location.href="<?php echo spUrl('user','admin');?>";
+  });
+}
+</script>

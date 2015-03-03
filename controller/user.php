@@ -10,7 +10,8 @@ class user extends spController
     }
 
     public function index(){
-        $this->user_info    = $_SESSION['user'];
+        $user_lib           = spClass('m_users');
+        $this->user_info    = $user_lib->find(array('userid'=>$_SESSION['user']['userid']));
         $page               = array(
             'title'     => '管理',
             'tag'       => 'index'
@@ -149,6 +150,19 @@ class user extends spController
         );
         $order_lib->update(array('id'=>$id), $info);
         $this->jump(spUrl('user','admin'));
+    }
+
+    public function port(){
+        if($_SESSION['user']['username']!='ety001'){
+            $this->jump(spUrl('user','index'));
+        }
+        $user_id      = $this->spArgs('u');
+        $p            = $this->spArgs('p');
+        $user_lib           = spClass('m_users');
+        $info   = array(
+            'port'=> $p
+        );
+        $user_lib->update(array('userid'=>$user_id), $info);
     }
 
 }
